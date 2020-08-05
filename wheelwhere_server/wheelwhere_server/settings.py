@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wheel',
-        'USER': 'kil',
+        'USER': 'wheel',
         'PASSWORD': '12',
         'HOST': 'localhost',
         'PORT': '3306',
