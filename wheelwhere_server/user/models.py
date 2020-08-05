@@ -4,4 +4,6 @@ from django.db import models
 class user(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     cell_phone = models.CharField(max_length=255, null=True, blank=True)
+    password = models.CharField(max_length=255, null=True, blank=True)
     email = models.CharField(max_length=255, null=True, blank=True)
+

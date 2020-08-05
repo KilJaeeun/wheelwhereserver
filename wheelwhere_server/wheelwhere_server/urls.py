@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from django.contrib import admin
+from rest_framework import routers
+from user.views import userViewSet
+from facility.views import commentViewSet, postViewSet
+
+router = routers.DefaultRouter()
+router.register('users', userViewSet)  # prefix = movies , viewset = MovieViewSet
+
+router.register('posts', postViewSet)
+router.register('comments', commentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+
 ]
