@@ -78,19 +78,10 @@ WSGI_APPLICATION = 'wheelwhere_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wheel',
-        'USER': 'wheel',
-        'PASSWORD': '12',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'POOL_OPTIONS': {
-            'POOL_SIZE': 10,
-            'MAX_OVERFLOW': 10
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 
 # Password validation

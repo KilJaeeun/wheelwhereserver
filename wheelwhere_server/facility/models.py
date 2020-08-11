@@ -21,14 +21,6 @@ class post(models.Model):
         field_names = ([field.name for field in meta.fields])
         return field_names
 
-    def save(self, *args, **kwargs):
-        if self.comment_set:
-            self.star =0
-            for comment in self.comment_set:
-                self.star += comment.star
-        super(post, self).save(*args, **kwargs)
-
-
 class comment(models.Model):
     post = models.ForeignKey(post, on_delete=models.CASCADE)
     text = models.TextField()
