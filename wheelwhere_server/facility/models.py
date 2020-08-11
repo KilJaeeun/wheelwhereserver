@@ -3,6 +3,15 @@ from django.db import models
 # Create your models here.
 class post(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
+    address =models.TextField(blank=True, default="")
+    is_toilet = models.BooleanField(default=False)
+    is_elibator = models.BooleanField(default=False)
+    is_parking= models.BooleanField(default=False)
+    is_tuck= models.BooleanField(default=False)
+    is_helper= models.BooleanField(default=False)
+
+    oldAddress=models.TextField(blank=True, default="")
+
     description = models.TextField()
     latitude = models.CharField(max_length=255,  default=0)
     longitude = models.CharField(max_length=255, default=0)
