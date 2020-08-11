@@ -21,6 +21,8 @@ from rest_framework import routers
 from user.views import userViewSet
 from facility.views import commentViewSet, postViewSet
 
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
+
 router = routers.DefaultRouter()
 router.register('users', userViewSet)  # prefix = movies , viewset = MovieViewSet
 
@@ -30,5 +32,8 @@ router.register('comments', commentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    url(r'^api-jwt-auth/$', obtain_jwt_token),  # JWT 토큰 획득
+    url(r'^api-jwt-auth/refresh/$', refresh_jwt_token),  # JWT 토큰 갱신
+    url(r'^api-jwt-auth/verify/$', verify_jwt_token),  # JWT 토큰 확인
 
 ]
