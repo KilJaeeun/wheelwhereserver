@@ -68,7 +68,7 @@ MIDDLEWARE = [
 ]
 SITE_ID =1
 ROOT_URLCONF = 'wheelwhere_server.urls'
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
