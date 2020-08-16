@@ -32,8 +32,6 @@ router.register('comments', commentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    url(r'^api-jwt-auth/$', obtain_jwt_token),  # JWT 토큰 획득
-    url(r'^api-jwt-auth/refresh/$', refresh_jwt_token),  # JWT 토큰 갱신
-    url(r'^api-jwt-auth/verify/$', verify_jwt_token),  # JWT 토큰 확인
-
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
 ]

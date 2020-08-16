@@ -10,13 +10,13 @@ class post(models.Model):
     is_tuck= models.BooleanField(default=False)
     is_helper= models.BooleanField(default=False)
 
-    oldAddress=models.TextField(blank=True, default="")
+   # oldAddress=models.TextField(blank=True, default="")
 
     description = models.TextField()
     latitude = models.CharField(max_length=255,  default=0)
     longitude = models.CharField(max_length=255, default=0)
     star = models.FloatField(null=True, default=0)
-    author =models.ForeignKey('user.user', on_delete=models.CASCADE)
+    author =models.ForeignKey('user.user', on_delete=models.CASCADE, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
