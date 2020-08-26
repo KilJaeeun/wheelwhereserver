@@ -12,4 +12,4 @@ class postSerializer(serializers.ModelSerializer):
 class commentSerializer(serializers.ModelSerializer):
     class Meta:
         model = comment  # 모델 설정
-        fields = ('id', 'post', 'text', 'star', 'author')  # 필드 설정
+        fields = ('id', 'post', 'text', 'star', 'author','created_at')  # 필드 설정
