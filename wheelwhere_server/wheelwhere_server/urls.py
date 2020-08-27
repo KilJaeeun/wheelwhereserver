@@ -18,6 +18,8 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
+
+from search.views import SearchView
 from user.views import userViewSet
 from facility.views import commentViewSet, postViewSet
 
@@ -32,6 +34,7 @@ router.register('comments', commentViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('search/',  SearchView.as_view()),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
 ]
