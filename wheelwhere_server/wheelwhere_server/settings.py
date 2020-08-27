@@ -38,6 +38,17 @@ REST_FRAMEWORK = {
     #     'rest_framework.authentication.BasicAuthentication',
     # ),
 }
+#REST_FRAMEWORK = {
+#    'DEFAULT_PERMISSION_CLASSES': (
+#              'rest_framework.permissions.IsAdminUser',
+#        'rest_framework.permissions.IsAuthenticated',
+#    ),
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+      
+#        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#        'rest_framework.authentication.BasicAuthentication',
+#    ),
+#}
 
 INSTALLED_APPS = [
     'facility',
@@ -57,7 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-REST_USE_JWT = True
+#REST_USE_JWT = True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -133,3 +144,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'collectstatic')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+

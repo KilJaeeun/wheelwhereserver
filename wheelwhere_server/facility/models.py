@@ -4,8 +4,9 @@ from django.db import models
 class post(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     address =models.TextField(blank=True, default="")
+    phone = models.CharField(max_length =255, null =True, blank=True)
     is_toilet = models.BooleanField(default=False)
-    is_elibator = models.BooleanField(default=False)
+    is_elivator = models.BooleanField(default=False)
     is_parking= models.BooleanField(default=False)
     is_tuck= models.BooleanField(default=False)
     is_helper= models.BooleanField(default=False)
@@ -31,9 +32,9 @@ class post(models.Model):
         return field_names
 
 class comment(models.Model):
-    post = models.ForeignKey(post, on_delete=models.CASCADE)
+    post = models.ForeignKey(post, on_delete=models.CASCADE, null=True)
     text = models.TextField()
-    author = models.ForeignKey('user.user', on_delete=models.CASCADE)
+    author = models.ForeignKey('user.user', on_delete=models.CASCADE, null=True)
     star = models.FloatField(null=True, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
